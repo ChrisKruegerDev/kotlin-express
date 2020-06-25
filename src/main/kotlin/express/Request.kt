@@ -27,6 +27,9 @@ external interface Request {
     fun accepts(types: List<String>)
     fun get(field: String): String
     fun `is`(type: String): Boolean?
-    fun param(name: String, defaultValue: dynamic): String
+    fun param(name: String, defaultValue: Any?): String?
     fun range(times: Int)
 }
+
+fun Request.getString(param: String, defaultValue: String? = null): String? = param(param, defaultValue)
+fun Request.getInt(param: String, defaultValue: Int? = null): Int? = param(param, defaultValue)?.toInt()
