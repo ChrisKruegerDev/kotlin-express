@@ -1,4 +1,8 @@
 # Project exclude paths
-/.gradle/
-/build/
-/build/classes/kotlin/main/
+build
+.gradle
+.idea
+out
+*.iml
+.directory
+local.properties
