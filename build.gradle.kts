@@ -19,6 +19,10 @@ repositories {
     maven("https://dl.bintray.com/chriskrueger/maven")
 }
 
+base {
+    archivesBaseName = "kotlin-express"
+}
+
 kotlin {
     js {
         nodejs()
@@ -35,6 +39,9 @@ val sourcesJar by tasks.creating(Jar::class) {
 }
 
 publishing {
+    //    https://github.com/gradle/gradle/issues/11412#issuecomment-555413327
+    System.setProperty("org.gradle.internal.publish.checksums.insecure", "true")
+
     repositories {
         maven {
             name = "bintray"
