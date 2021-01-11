@@ -65,7 +65,7 @@ publishing {
             pom {
                 name.set(project.name)
                 description.set("Kotlin wrapper for Express API.")
-                url.set("https://github.com/chriskrg/${project.name}")
+                url.set("https://github.com/chrisnkrueger/${project.name}")
                 inceptionYear.set("2020")
                 packaging = "jar"
 
@@ -84,12 +84,12 @@ publishing {
                 }
                 issueManagement {
                     system.set("GitHub Issues")
-                    url.set("https://github.com/chriskrg/${project.name}/issues")
+                    url.set("https://github.com/chrisnkrueger/${project.name}/issues")
                 }
                 scm {
-                    connection.set("scm:git:https://github.com/chriskrg/${project.name}.git")
-                    developerConnection.set("scm:git:git@github.com:chriskrg/${project.name}.git")
-                    url.set("https://github.com/chriskrg/${project.name}")
+                    connection.set("scm:git:https://github.com/chrisnkrueger/${project.name}.git")
+                    developerConnection.set("scm:git:git@github.com:chrisnkrueger/${project.name}.git")
+                    url.set("https://github.com/chrisnkrueger/${project.name}")
                 }
             }
         }
