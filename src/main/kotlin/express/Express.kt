@@ -34,5 +34,3 @@ external class Compression
 typealias Callback = () -> Unit
 typealias RequestHandler = (req: Request, res: Response, next: NextFunction) -> Unit
 typealias NextFunction = (Error?) -> Unit
-
-fun request(block: (req: Request, res: Response) -> Unit): (req: Request, res: Response) -> Unit = block
