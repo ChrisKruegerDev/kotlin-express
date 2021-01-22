@@ -8,7 +8,6 @@ package express
  * }
  */
 @JsModule("express")
-@JsNonModule
 external class Express {
 
     val req: Request
@@ -30,7 +29,6 @@ external class Express {
 }
 
 @JsModule("compression")
-@JsNonModule
 external class Compression
 
 typealias Callback = () -> Unit

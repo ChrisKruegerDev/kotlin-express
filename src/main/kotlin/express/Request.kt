@@ -1,10 +1,13 @@
 package express
 
+import kotlin.js.Json
+
 external interface Request {
     val app: dynamic
     val baseUrl: String
     val body: Any
-    val headers: dynamic
+    val headers: IncomingHttpHeaders
+    val rawHeaders: List<String>
     val cookies: dynamic
     val fresh: Boolean
     val hostname: String
@@ -29,7 +32,20 @@ external interface Request {
     fun `is`(type: String): Boolean?
     fun param(name: String, defaultValue: Any?): String?
     fun range(times: Int)
+    fun header(name: String): Any?
 }
 
-fun Request.getString(param: String, defaultValue: String? = null): String? = param(param, defaultValue)
-fun Request.getInt(param: String, defaultValue: Int? = null): Int? = param(param, defaultValue)?.toInt()
+typealias IncomingHttpHeaders = Json
+
+fun Request.getHeaderString(name: String): String? = header(name)?.toString()
+
+fun Request.getParamString(param: String): String? = params[param]?.toString()
+fun Request.getParamInt(param: String): Int? {
+    val value = params[param] ?: return null
+
+    return when (value) {
+        is Number -> value.toInt()
+        is String -> value.toString().toInt()
+        else      -> throw IllegalStateException("could not parse type: $value")
+    }
+}
