@@ -1,10 +1,9 @@
 pluginManagement {
     repositories {
-        maven { setUrl("https://kotlin.bintray.com/kotlinx") }
+        google()
+        gradlePluginPortal()
         mavenCentral()
-        maven { setUrl("https://plugins.gradle.org/m2/") }
     }
 }
 
 rootProject.name = "kotlin-express"
-
